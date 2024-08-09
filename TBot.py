@@ -10,7 +10,6 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 load_dotenv()
 
-# pg_db = PostgresHandler(config('PG_LINK'))
 scheduler = AsyncIOScheduler(timezone='Asia/Yekaterinburg')
 admins = getenv('ADMINS')
 

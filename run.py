@@ -4,7 +4,6 @@ from handlers.start import start_router
 from aiogram.types import BotCommand, BotCommandScopeDefault
 from dotenv import load_dotenv
 from utils.base_connect import conn
-# from work_time.time_func import send_time_msg
 load_dotenv()
 
 
