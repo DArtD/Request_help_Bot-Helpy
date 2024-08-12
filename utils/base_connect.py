@@ -17,7 +17,7 @@ async def check_conn():
                              host=host,
                              port=port)
         print("Connection success")
-    except(Exception, Error) as error:
+    except (Exception, Error) as error:
         print("PostgreSQL error", error)
 
 
@@ -28,5 +28,4 @@ async def conn():
                          host=host,
                          port=port)
 
-    cursor = connection.cursor()
-    return cursor
+    return connection

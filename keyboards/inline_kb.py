@@ -1,4 +1,5 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
+from TBot import admins
 
 
 def ease_link_kb():
@@ -10,11 +11,15 @@ def ease_link_kb():
     return InlineKeyboardMarkup(inline_keyboard=inline_kb_list)
 
 
-def req_kb():
+def req_kb(user_id: int):
     inline_kb_list = [
         [InlineKeyboardButton(text='Отправить заявку', callback_data='req_send')],
         [InlineKeyboardButton(text='Отправленные заявки', callback_data='my_req')],
     ]
+
+    if user_id == int(admins):
+        inline_kb_list.append([InlineKeyboardButton(text='Админ панель', callback_data='admin_panel')])
+        inline_kb_list.append([InlineKeyboardButton(text='Активные заявки', callback_data='active_req')])
 
     return InlineKeyboardMarkup(inline_keyboard=inline_kb_list)
 

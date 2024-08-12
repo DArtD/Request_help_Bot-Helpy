@@ -33,8 +33,6 @@ class Users(BaseFilter):
         except(Exception, Error) as error:
             print("Ошибка при работе с PostgreSQL", error)
 
-
-
         # else:
         #     await message.answer('Вас нет в БД')
         #     return False
