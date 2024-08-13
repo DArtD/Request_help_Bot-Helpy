@@ -20,6 +20,8 @@ class Users(BaseFilter):    # класс-фильтр
         users_id = cursor.fetchall()
         for i in users_id:
             if message.from_user.id == i[0]:
+                cursor.close()
+                connection.close()
                 return True
 
     # else:
