@@ -4,7 +4,7 @@ from handlers.start import start_router
 from handlers.users.request_handler import router as req_handlers
 from aiogram.types import BotCommand, BotCommandScopeDefault
 from dotenv import load_dotenv
-from utils.base_connect import conn
+from utils.base_connect import conn, check_conn
 load_dotenv()
 
 
@@ -16,7 +16,7 @@ async def set_commands():
 
 async def main():
     dp.include_routers(start_router, req_handlers)
-    await conn()
+    await check_conn()
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
     await set_commands()

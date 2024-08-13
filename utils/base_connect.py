@@ -9,20 +9,20 @@ host = getenv("BASE_HOST")
 port = getenv("BASE_PORT")
 
 
-async def check_conn():
+async def check_conn():     # функция проверки связи с БД
     try:
         connection = connect(user=user,
                              password=password,
                              database="bot_logs",
                              host=host,
                              port=port)
-        print("Connection success")
+        print("PgSQL: Connection success")
     except (Exception, Error) as error:
-        print("PostgreSQL error", error)
+        print("PgSQL error", error)
 
 
-async def conn():
-    connection = connect(user=user,
+async def conn():           # функция подключения к БД, возвращает объект connection
+    connection = connect(user=user,     # connection позволяет делать запрос и сохранять данные в БД
                          password=password,
                          database="bot_logs",
                          host=host,

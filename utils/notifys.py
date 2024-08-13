@@ -2,7 +2,6 @@ import logging
 import aiogram
 from os import getenv
 from dotenv import load_dotenv
-from utils.base_connect import base_connect
 
 load_dotenv()
 chat_id = getenv("CHAT_ID")

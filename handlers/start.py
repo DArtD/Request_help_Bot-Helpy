@@ -1,7 +1,6 @@
 from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
-from keyboards.all_kb import main_kb
 from keyboards.inline_kb import req_kb
 
 start_router = Router()
@@ -18,6 +17,6 @@ async def start_cmd(message: Message):
 #     await message.answer('Вот тебе инлайн клавиатура со ссылками!', reply_markup=ease_link_kb())
 
 
-@start_router.message(Command("id"))
+@start_router.message(Command("id"))  # Хендлер команды /id. Определяет id чата
 async def chat_id(message: Message):
     await message.answer(f"ID чата: {message.chat.id}")

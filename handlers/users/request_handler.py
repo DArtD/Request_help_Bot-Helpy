@@ -10,10 +10,6 @@ from datetime import datetime
 
 load_dotenv()
 chat_id = getenv("CHAT_ID")
-user = getenv("BASE_USER")
-password = getenv("BASE_PASSWORD")
-host = getenv("BASE_HOST")
-port = getenv("BASE_PORT")
 router = Router()
 
 
@@ -63,13 +59,13 @@ async def active_reqs_list(callback: CallbackQuery):
     cursor.execute("SELECT users_requests.req_id, users.username, users_requests.tel_number, users_requests.req_text, "
                    "users_requests.req_date FROM public.users_requests "
                    "JOIN public.users ON users.user_id = users_requests.user_id WHERE status='active'")
-    text = ''
     for i in cursor.fetchall():
         text = (f'ID запроса: {i[0]}\n'
                 f'Пользователь: {i[1]}\n'
                 f'Тел.: {i[2]}\n'
                 f'<b>Описание проблемы:</b> {i[3]}\n'
                 f'<u>Дата: {i[4]}</u>')
+
         await callback.message.answer(text)
 
     await callback.answer()
