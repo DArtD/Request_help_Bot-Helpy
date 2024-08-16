@@ -1,10 +1,11 @@
 import asyncio
 from TBot import bot, dp, scheduler
 from handlers.start import start_router
-from handlers.users.request_handler import router as req_handlers
+from handlers.users.request_handler import req_router
+from handlers.users.it_handlers import it_router
 from aiogram.types import BotCommand, BotCommandScopeDefault
 from dotenv import load_dotenv
-from utils.base_connect import conn, check_conn
+from utils.base_connect import check_conn
 load_dotenv()
 
 
@@ -15,7 +16,7 @@ async def set_commands():
 
 
 async def main():
-    dp.include_routers(start_router, req_handlers)
+    dp.include_routers(start_router, req_router, it_router)
     await check_conn()
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)

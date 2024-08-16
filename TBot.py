@@ -19,22 +19,3 @@ logger = logging.getLogger(__name__)
 
 bot = Bot(token=getenv("TOKEN"), default=DefaultBotProperties(parse_mode=ParseMode.HTML))   # прописываем объект бота
 dp = Dispatcher(storage=MemoryStorage())    # позволяем хранить данные в оперативке
-
-
-#
-# async def main():
-#     bot = Bot(token=TOKEN)
-#     dp = Dispatcher(storage=storage)
-#     logging.basicConfig(level=logging.DEBUG)
-#     dp.startup.register(on_startup)
-#     dp.shutdown.register(on_shutdown)
-#     dp.include_routers(rout1, rout2)
-#
-#     try:
-#         await dp.start_polling(bot)
-#     finally:
-#         await bot.session.close()
-#
-#
-# if __name__ == '__main__':
-#     asyncio.run(main())

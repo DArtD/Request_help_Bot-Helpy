@@ -7,13 +7,14 @@ user = getenv("BASE_USER")
 password = getenv("BASE_PASSWORD")
 host = getenv("BASE_HOST")
 port = getenv("BASE_PORT")
+name = getenv("BASE_NAME")
 
 
 async def check_conn():     # функция проверки связи с БД
     try:
         connection = connect(user=user,
                              password=password,
-                             database="bot_logs",
+                             database=name,
                              host=host,
                              port=port)
         print("PgSQL: Connection success")
@@ -24,7 +25,7 @@ async def check_conn():     # функция проверки связи с БД
 async def conn():           # функция подключения к БД, возвращает объект connection
     connection = connect(user=user,     # connection позволяет делать запрос и сохранять данные в БД
                          password=password,
-                         database="bot_logs",
+                         database=name,
                          host=host,
                          port=port)
 
