@@ -3,6 +3,7 @@ from TBot import bot, dp, scheduler
 from handlers.start import start_router
 from handlers.users.request_handler import req_router
 from handlers.users.it_handlers import it_router
+from handlers.users.requsets_from_warehouse import warehouse
 from aiogram.types import BotCommand, BotCommandScopeDefault
 from dotenv import load_dotenv
 from utils.base_connect import check_conn
@@ -16,7 +17,7 @@ async def set_commands():
 
 
 async def main():
-    dp.include_routers(start_router, req_router, it_router)
+    dp.include_routers(start_router, req_router, it_router, warehouse)
     await check_conn()
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
